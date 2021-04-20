@@ -13,6 +13,6 @@ import java.util.List;
 public interface BitcoinService {
 
     @GET
-    @Produces({MediaType.APPLICATION_JSON})
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Bitcoin> listAll();
 }
