@@ -9,7 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 
 @Path("/usuarios")
-public class UserResource {
+public class UsuarioResource {
 
     @POST
     @Transactional
