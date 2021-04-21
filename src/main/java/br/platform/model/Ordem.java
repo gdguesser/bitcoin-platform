@@ -31,4 +31,20 @@ public class Ordem {
     public void setUserId(Long userId) { this.userId = userId; }
 
     public Long getUserId() { return userId; }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public String getStatus() {
+        return status;
+    }
 }

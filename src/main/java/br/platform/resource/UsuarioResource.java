@@ -19,15 +19,15 @@ public class UsuarioResource {
     @POST
     @PermitAll
     @Transactional
-    @Consumes(MediaType.APPLICATION_JSON)@GET
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void insert(Usuario usuario) {
+        usuarioRepository.persist(Usuario.adicionar(usuario));
+    }
+
+    @GET
     @RolesAllowed("admin")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Usuario> listAll() {
         return Usuario.listAll();
     }
-    public void insert(Usuario usuario) {
-        usuarioRepository.persist(Usuario.adicionar(usuario));
-    }
-
-
 }

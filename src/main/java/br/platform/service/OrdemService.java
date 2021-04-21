@@ -33,10 +33,7 @@ public class OrdemService {
         ordemRepository.persist(ordem);
     }
 
-    @GET
-    @RolesAllowed("admin")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Ordem> listAll() {
+    public List<Ordem> listar() {
         return ordemRepository.listAll();
     }
 }
