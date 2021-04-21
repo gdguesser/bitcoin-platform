@@ -43,6 +43,8 @@ public class Usuario {
 
     public String getRole() { return role; }
 
+    public String getPassword() { return password; }
+
     public static Usuario adicionar(Usuario usuario) {
 
         usuario.password = BcryptUtil.bcryptHash(usuario.password);
