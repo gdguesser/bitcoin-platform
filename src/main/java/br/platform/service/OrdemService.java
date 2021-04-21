@@ -19,7 +19,7 @@ public class OrdemService {
         Optional<Usuario> usuarioOptional = Usuario.findByIdOptional(ordem.getUserId());
         Usuario usuario = usuarioOptional.orElseThrow();
 
-        if(usuario.getUsername().equals(securityContext.getUserPrincipal().getName())) {
+        if(!usuario.getUsername().equals(securityContext.getUserPrincipal().getName())) {
             throw new RuntimeException("O usuário logado é diferente do userId");
         }
         ordem.setData(LocalDate.now());
