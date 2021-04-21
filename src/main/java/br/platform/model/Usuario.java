@@ -1,6 +1,10 @@
 package br.platform.model;
 
+import io.quarkus.security.jpa.Password;
+import io.quarkus.security.jpa.Roles;
 import io.quarkus.security.jpa.UserDefinition;
+import io.quarkus.security.jpa.Username;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,8 +20,14 @@ public class Usuario {
 
     private String nome;
     private String cpf;
+
+    @Username
     private String username;
+
+    @Password
     private String password;
+
+    @Roles
     private String role;
 
     public void setNome(String nome) { this.nome = nome; }
