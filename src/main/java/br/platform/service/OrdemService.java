@@ -3,10 +3,16 @@ package br.platform.service;
 import br.platform.model.Ordem;
 import br.platform.model.Usuario;
 import br.platform.repository.OrdemRepository;
+
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
@@ -25,5 +31,12 @@ public class OrdemService {
         ordem.setData(LocalDate.now());
         ordem.setStatus("ENVIADA");
         ordemRepository.persist(ordem);
+    }
+
+    @GET
+    @RolesAllowed("admin")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Ordem> listAll() {
+        return ordemRepository.listAll();
     }
 }
