@@ -2,7 +2,7 @@ package br.platform.resource;
 
 import br.platform.model.Usuario;
 import br.platform.repository.UsuarioRepository;
-
+import javax.annotation.security.PermitAll;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
@@ -17,9 +17,10 @@ public class UsuarioResource {
     UsuarioRepository usuarioRepository;
 
     @POST
+    @PermitAll
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
     public void insert(Usuario usuario) {
-        usuarioRepository.persist(usuario);
+        usuarioRepository.persist(Usuario.adicionar(usuario));
     }
 }

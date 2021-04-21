@@ -1,5 +1,6 @@
 package br.platform.model;
 
+import io.quarkus.elytron.security.common.BcryptUtil;
 import io.quarkus.security.jpa.Password;
 import io.quarkus.security.jpa.Roles;
 import io.quarkus.security.jpa.UserDefinition;
@@ -39,4 +40,20 @@ public class Usuario {
     public void setPassword(String password) { this.password = password; }
 
     public void setRole(String role) { this.role = role; }
+
+    public String getRole() { return role; }
+
+    public static Usuario adicionar(Usuario usuario) {
+
+        usuario.password = BcryptUtil.bcryptHash(usuario.password);
+        usuario.role = validarUsername(usuario.username);
+
+        return usuario;
+    }
+
+    public static String validarUsername(String username) {
+        if(username.equals("alura")) {
+            return "admin";
+        } return "user";
+    }
 }
