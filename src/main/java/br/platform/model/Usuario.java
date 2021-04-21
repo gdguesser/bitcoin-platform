@@ -1,13 +1,13 @@
 package br.platform.model;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-
+import io.quarkus.security.jpa.UserDefinition;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@UserDefinition
 public class Usuario {
 
     @Id
@@ -18,6 +18,7 @@ public class Usuario {
     private String cpf;
     private String username;
     private String password;
+    private String role;
 
     public void setNome(String nome) { this.nome = nome; }
 
@@ -26,4 +27,6 @@ public class Usuario {
     public void setUsername(String username) { this.username = username; }
 
     public void setPassword(String password) { this.password = password; }
+
+    public void setRole(String role) { this.role = role; }
 }
