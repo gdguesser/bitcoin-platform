@@ -1,6 +1,6 @@
 package br.platform.resource;
 
-import br.platform.model.User;
+import br.platform.model.Usuario;
 
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
@@ -14,7 +14,7 @@ public class UserResource {
     @POST
     @Transactional
     @Consumes(MediaType.APPLICATION_JSON)
-    public void insert(User user) {
-        User.persist(user);
+    public void insert(Usuario usuario) {
+        Usuario.persist(usuario);
     }
 }
