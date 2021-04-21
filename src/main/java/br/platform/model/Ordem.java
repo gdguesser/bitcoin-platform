@@ -29,4 +29,6 @@ public class Ordem {
     public void setStatus(String status) { this.status = status; }
 
     public void setUserId(Long userId) { this.userId = userId; }
+
+    public Long getUserId() { return userId; }
 }

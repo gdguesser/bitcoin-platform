@@ -1,6 +1,7 @@
 package br.platform.model;
 
 import io.quarkus.elytron.security.common.BcryptUtil;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import io.quarkus.security.jpa.Password;
 import io.quarkus.security.jpa.Roles;
 import io.quarkus.security.jpa.UserDefinition;
@@ -13,7 +14,7 @@ import javax.persistence.Id;
 
 @Entity
 @UserDefinition
-public class Usuario {
+public class Usuario extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,6 +45,8 @@ public class Usuario {
     public String getRole() { return role; }
 
     public String getPassword() { return password; }
+
+    public String getUsername() { return username; }
 
     public static Usuario adicionar(Usuario usuario) {
 
