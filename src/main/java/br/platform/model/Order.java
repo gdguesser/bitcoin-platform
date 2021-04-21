@@ -1,10 +1,12 @@
 package br.platform.model;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class Ordem {
+public class Order extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
