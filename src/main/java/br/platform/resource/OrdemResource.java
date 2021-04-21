@@ -2,7 +2,6 @@ package br.platform.resource;
 
 import br.platform.model.Ordem;
 import br.platform.repository.OrdemRepository;
-
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class Ordem extends PanacheEntityBase {
+public class Ordem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
